@@ -2,11 +2,15 @@
   "name": "row-padding",
   "version": "1.0.0",
   "description": "Fixed-width text formatting, including columns and subcolumns",
-  "main": "dist/index.js",
+  "main": "lib/index.min.js",
+  "module": "lib/index.es.js",
+  "jsnext:main": "lib/index.nx.js",
   "scripts": {
+    "prebtest": "tsc --build tsconfig.json",
     "test": "jest",
     "prebuild": "tsc --build tsconfig.json",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepublish": "npm build"
   },
   "repository": {
     "type": "git",
@@ -24,18 +28,19 @@
   },
   "homepage": "https://github.com/BobKerns/row-padding#readme",
   "dependencies": {
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "ramda": "^0.27.1",
     "wcsize": "^1.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "jest": "^24.8.0",
-    "rollup": "^1.12.3",
-    "rollup-plugin-terser": "^5.0.0",
-    "rollup-plugin-typescript2": "^0.21.1",
-    "rollup-plugin-visualizer": "^1.1.1",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.4.5"
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.6",
+    "rollup": "^2.52.7",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-visualizer": "^5.5.1",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.5"
   }
 }
